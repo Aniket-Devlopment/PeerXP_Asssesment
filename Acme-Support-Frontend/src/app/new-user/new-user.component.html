@@ -1,0 +1,56 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <a mat-raised-button color="primary" class="button1" fxLayoutAlign="center center"
+            [routerLink]="'/newuser'">Create User</a>
+        <a mat-raised-button color="primary" class="button2" fxLayoutAlign="center center"
+            [routerLink]="'/newdept'">Create Department</a>
+        <a mat-raised-button color="primary" class="button2" fxLayoutAlign="center center"
+            [routerLink]="'/dashboard'">DashBoard</a>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="main-div">
+            <mat-card>
+                <mat-toolbar color="primary">Create User</mat-toolbar>
+                <form class="create-user" [formGroup]="formGroup" (ngSubmit)="adduser()">
+                    <div>
+                        <mat-form-field>
+                            <input matInput placeholder="Name" formControlName="Name">
+                            <mat-error style="color: red;">
+                                UserName Is Required
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="Email" formControlName="Email">
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="Phone Number" formControlName="Phone_Number">
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <input matInput type="password" placeholder="Password" formControlName="Password">
+                            <mat-error style="color: red;">
+                                Password Is Required
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="Department" formControlName="Department">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill">
+                            <mat-select placeholder="Role" formControlName="Role"
+                                (selectionChange)="updateform($event,'Role')">
+                                <mat-option *ngFor="let Role of DropdownData.Role" [value]="Role">{{Role}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <button mat-raised-button class="add-button" color="primary" type="submit">Add User</button>
+                </form>
+            </mat-card>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

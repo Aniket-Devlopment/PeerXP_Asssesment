@@ -128,3 +128,43 @@ def Delete_Department(request):
             "Message":"Failed to Delete Department"
         }
     return JsonResponse(return_object,safe=False)
+
+@csrf_exempt
+def User_Login(request):
+    try:
+        request = json.loads(request.body)
+        if 'Email' in request and request['Email'] and 'Password' in request and request['Password']:
+            login_details = User.objects.filter(Email = request['Email'], Password = request['Password'])
+            if login_details:
+                return_object = {
+                    "Status":"SUCCESS",
+                    "Message":"User Login Successfully"
+                }
+                return JsonResponse(return_object,safe=False)
+        if 'Phone_Number' in request and request['Phone_Number'] and 'Password' in request and request['Password']:
+            login_details = User.objects.filter(Phone_Number = request['Phone_Number'], Password = request['Password'])
+            if login_details:
+                return_object = {
+                    "Status":"SUCCESS",
+                    "Message":"User Login Successfully"
+                }
+                return JsonResponse(return_object,safe=False)
+            else:
+               return_object = {
+                    "Status":"FAIL",
+                    "Message":"User Details Not Found"
+                }
+        else:
+            return_object = {
+                    "Status":"FAIL",
+                    "Message":"Invalid Request Object"
+                }
+    except (Exception) as error:
+        print("Error in User_Login : ",error)
+        return_object = {
+            "Status":"FAIL",
+            "Message":"Failed to Login"
+        }
+    return JsonResponse(return_object,safe=False)
+        
+            

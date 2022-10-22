@@ -1,0 +1,21 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Sign In</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+            <mat-form-field>
+              <input matInput placeholder="Email Or Mobile" formControlName="Email" ng-pattern="/^(?:\d{10}|\w+@\w+\.\w{2,3})$/">
+              <mat-error style="color: red;">
+                UserName Is Required
+              </mat-error >
+            </mat-form-field>
+          
+            <mat-form-field>
+                <input matInput type="password" placeholder="Password" formControlName="Password">
+                <mat-error style="color: red;">
+                    Password Is Required
+                </mat-error>
+              </mat-form-field>
+              <button mat-raised-button color="primary" type="submit">Sign In</button>
+          </form>
+    </mat-card>
+</div>

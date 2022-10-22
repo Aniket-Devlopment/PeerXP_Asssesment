@@ -6,4 +6,5 @@ urlpatterns = [
     path('createdept',views.Create_Department),
     path('updatedept',views.Update_Department),
     path('deletedept',views.Delete_Department),
+    path('userlogin',views.User_Login),
 ]
