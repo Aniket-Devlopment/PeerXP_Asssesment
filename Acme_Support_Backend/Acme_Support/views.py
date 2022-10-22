@@ -166,5 +166,37 @@ def User_Login(request):
             "Message":"Failed to Login"
         }
     return JsonResponse(return_object,safe=False)
+
+@csrf_exempt
+def Assign_Department_to_user(request):
+    try:
+        request = json.loads(request.body)
+        if 'Name' in request and request['Name'] and 'Department' in request and request['Department']:
+            assign_dept = User.objects.filter(Name = request['Name']).first()
+            if assign_dept:
+                assign_dept.Name = request['Name']
+                assign_dept.Department = request['Department']
+                assign_dept.save()
+                return_object = {
+                    "Status":"SUCCESS",
+                    "Message":"Department Assigned Successfully"
+                }
+            else:
+                return_object = {
+                    "Status":"FAIL",
+                    "Message":"Invalid User or Department"
+                }
+        else:
+            return_object = {
+                    "Status":"FAIL",
+                    "Message":"Invalid Request Object"
+                }
+    except (Exception) as error:
+        print('Error in Assign_Department_to_user : ',error)
+        return_object = {
+                    "Status":"FAIL",
+                    "Message":"Failed to Assign Department"
+                }
+    return JsonResponse(return_object,safe=False)
         
             

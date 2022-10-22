@@ -19,6 +19,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { NewUserComponent } from './new-user/new-user.component';
 import {MatSelectModule} from '@angular/material/select';
 import { NewdepartmentComponent } from './newdepartment/newdepartment.component';
+import { CreateticketComponent } from './createticket/createticket.component';
+import { AssignDeptComponent } from './assign-dept/assign-dept.component';
+import { UpdatedeptComponent } from './updatedept/updatedept.component';
+import { DeletedeptComponent } from './deletedept/deletedept.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { NewdepartmentComponent } from './newdepartment/newdepartment.component'
     LoginComponent,
     DashboardComponent,
     NewUserComponent,
-    NewdepartmentComponent
+    NewdepartmentComponent,
+    CreateticketComponent,
+    AssignDeptComponent,
+    UpdatedeptComponent,
+    DeletedeptComponent
   ],
   imports: [
     BrowserModule,

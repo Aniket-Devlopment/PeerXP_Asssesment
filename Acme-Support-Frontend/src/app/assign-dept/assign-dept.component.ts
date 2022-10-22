@@ -4,11 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthServiceService } from '../auth-service.service';
 
 @Component({
-  selector: 'app-newdepartment',
-  templateUrl: './newdepartment.component.html',
-  styleUrls: ['./newdepartment.component.css']
+  selector: 'app-assign-dept',
+  templateUrl: './assign-dept.component.html',
+  styleUrls: ['./assign-dept.component.css']
 })
-export class NewdepartmentComponent implements OnInit {
+export class AssignDeptComponent implements OnInit {
   formGroup!: FormGroup
   constructor(private authSevice: AuthServiceService, private router: Router,
     private activeRoute: ActivatedRoute) { }
@@ -19,12 +19,12 @@ export class NewdepartmentComponent implements OnInit {
   initForm() {
     this.formGroup = new FormGroup({
       Name: new FormControl('', [Validators.required]),
-      Description: new FormControl('', [Validators.required]),
+      Department: new FormControl('', [Validators.required]),
     }, { updateOn: 'submit' })
   }
-  adddept(){
+  assigndeptuser(){
     if(this.formGroup.valid){
-      this.authSevice.addnewdept(this.formGroup.value).subscribe(result => {
+      this.authSevice.assignnewdept(this.formGroup.value).subscribe(result =>{
         if(result.Status == "SUCCESS"){
           console.log(result);
           alert(result.Message)

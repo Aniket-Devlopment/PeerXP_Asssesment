@@ -1,0 +1,66 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <a mat-raised-button color="primary" class="button2" fxLayoutAlign="center center"
+            [routerLink]="'/newtickt'">Create Ticket</a>
+        <a mat-raised-button color="primary" class="button1" fxLayoutAlign="center center"
+            [routerLink]="'/newuser'">Create User</a>
+        <a mat-raised-button color="primary" class="button2" fxLayoutAlign="center center"
+            [routerLink]="'/newdept'">Create Department</a>
+        <a mat-raised-button color="primary" class="button2" fxLayoutAlign="center center"
+            [routerLink]="'/dashboard'">DashBoard</a>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="main-div">
+            <mat-card>
+                <mat-toolbar color="primary">Create Ticket</mat-toolbar>
+                <form class="create-tickt" [formGroup]="formGroup">
+                    <div>
+                        <mat-form-field>
+                            <input matInput placeholder="Subject" formControlName="Subject">
+                            <mat-error style="color: red;">
+                                Subject Is Required
+                            </mat-error>
+                        </mat-form-field>
+    
+                        <mat-form-field>
+                            <input matInput placeholder="Description" formControlName="Description">
+                            <mat-error style="color: red;">
+                                Description Is Required
+                            </mat-error>
+                        </mat-form-field>
+    
+                        <mat-form-field>
+                            <input matInput placeholder="Contact_Name" formControlName="Contact_Name">
+                            <mat-error style="color: red;">
+                                Contact Name Is Required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <input matInput placeholder="Email" formControlName="Email">
+                            <mat-error style="color: red;">
+                                Email Is Required
+                            </mat-error>
+                        </mat-form-field>
+    
+                        <mat-form-field>
+                            <input matInput placeholder="Phone_Number" formControlName="Phone_Number">
+                            <mat-error style="color: red;">
+                                Phone Number Is Required
+                            </mat-error>
+                        </mat-form-field>
+    
+                        <mat-form-field appearance="fill">
+                            <mat-select placeholder="Priority" formControlName="Priority"
+                                (selectionChange)="updateform($event,'Priority')">
+                                <mat-option *ngFor="let Priority of DropdownData.Priority" [value]="Priority">{{Priority}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <button mat-raised-button class="add-button" color="primary" type="submit">Submit Ticket</button>
+                </form>
+            </mat-card>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

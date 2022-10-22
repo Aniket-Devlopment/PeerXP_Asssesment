@@ -1,0 +1,33 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <a mat-raised-button color="primary" class="button2" fxLayoutAlign="center center"
+            [routerLink]="'/assigndept'">Assign Department</a>
+        <a mat-raised-button color="primary" class="button2" fxLayoutAlign="center center"
+            [routerLink]="'/dashboard'">DashBoard</a>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="main-div">
+            <mat-card>
+                <mat-toolbar color="primary">Assign Department to User</mat-toolbar>
+                <form class="assign-dept" [formGroup]="formGroup" (ngSubmit)="assigndeptuser()">
+                    <div>
+                        <mat-form-field>
+                            <input matInput placeholder="Name" formControlName="Name">
+                            <mat-error style="color: red;">
+                                UserName Is Required
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="Department" formControlName="Department">
+                            <mat-error style="color: red;">
+                                Department Is Required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <button mat-raised-button class="add-button" color="primary" type="submit">Submit</button>
+                </form>
+            </mat-card>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

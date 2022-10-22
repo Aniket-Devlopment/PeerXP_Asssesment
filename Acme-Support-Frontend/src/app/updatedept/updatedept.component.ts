@@ -4,11 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthServiceService } from '../auth-service.service';
 
 @Component({
-  selector: 'app-newdepartment',
-  templateUrl: './newdepartment.component.html',
-  styleUrls: ['./newdepartment.component.css']
+  selector: 'app-updatedept',
+  templateUrl: './updatedept.component.html',
+  styleUrls: ['./updatedept.component.css']
 })
-export class NewdepartmentComponent implements OnInit {
+export class UpdatedeptComponent implements OnInit {
   formGroup!: FormGroup
   constructor(private authSevice: AuthServiceService, private router: Router,
     private activeRoute: ActivatedRoute) { }
@@ -22,9 +22,9 @@ export class NewdepartmentComponent implements OnInit {
       Description: new FormControl('', [Validators.required]),
     }, { updateOn: 'submit' })
   }
-  adddept(){
+  updatedept(){
     if(this.formGroup.valid){
-      this.authSevice.addnewdept(this.formGroup.value).subscribe(result => {
+      this.authSevice.updatedept(this.formGroup.value).subscribe(result => {
         if(result.Status == "SUCCESS"){
           console.log(result);
           alert(result.Message)

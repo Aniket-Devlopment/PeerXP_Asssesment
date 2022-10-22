@@ -7,4 +7,5 @@ urlpatterns = [
     path('updatedept',views.Update_Department),
     path('deletedept',views.Delete_Department),
     path('userlogin',views.User_Login),
+    path('assigndept',views.Assign_Department_to_user),
 ]

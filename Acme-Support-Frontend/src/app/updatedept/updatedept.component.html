@@ -14,8 +14,8 @@
     <mat-drawer-content>
         <div class="main-div">
             <mat-card>
-                <mat-toolbar color="primary">Create Department</mat-toolbar>
-                <form class="create-dept" [formGroup]="formGroup" (ngSubmit)="adddept()">
+                <mat-toolbar color="primary">Update Department</mat-toolbar>
+                <form class="create-dept" [formGroup]="formGroup" (ngSubmit)="updatedept()">
                     <mat-form-field>
                         <input matInput placeholder="Name" formControlName="Name">
                         <mat-error style="color: red;">
@@ -29,7 +29,8 @@
                             Description Is Required
                         </mat-error>
                     </mat-form-field>
-                    <button mat-raised-button class="add-button" color="primary" type="submit">Add Department</button>
+                    <button mat-raised-button class="add-button" color="primary" type="submit">Update
+                        Department</button>
                 </form>
             </mat-card>
         </div>

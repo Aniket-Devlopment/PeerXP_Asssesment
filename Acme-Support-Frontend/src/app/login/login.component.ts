@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
     private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-      
+    this.initForm();
   }
   initForm() {
     this.formGroup = new FormGroup({
@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
         obj['Password'] = this.formGroup.value.Password;
       }
       this.authSevice.userlogin(obj).subscribe(result => {
-        console.log("result",result);
         if(result.Status == "SUCCESS"){
           console.log(result);
           const DashBoard = "/dashboard"
